@@ -1,0 +1,118 @@
+//cores
+
+$azul-1: #6A6AF9;
+$azul-2: #5555E2;
+$azul-3: #4343CE;
+$azul-4: #3434BB;
+$azul-5: #2525A3;
+$azul-6: #18188F;
+$azul-7: #0E0E81;
+$azul-8: #070775;
+$azul-9: #000062;
+
+$amarelo-01: #FFD700;
+$amarelo-02: #FBDC33;
+$amarelo-03: #F1D228;
+$amarelo-04: #E7C71F;
+$amarelo-05: #DFBF15;
+$amarelo-06: #D3B40B;
+$amarelo-07: #DFBF15;
+$amarelo-08: #CBAC06;
+$amarelo-09: #BFA200;
+$amarelo-10: #A88E00;
+$amarelo-11: #8E7800;
+$amarelo-12: #736000;
+$amarelo-13: #605000;
+$amarelo-14: #554700;
+$amarelo-15: #413600;
+
+
+$cor-base-01: #FFF;
+$cor-base-02: #EBEBEB;
+$cor-base-03: #D6D6D6;
+$cor-base-04: #C2C2C2;
+$cor-base-05: #ADADAD;
+$cor-base-06: #999999;
+$cor-base-07: #858585;
+$cor-base-08: #707070;
+$cor-base-09: #5C5C5C;
+$cor-base-10: #474747;
+$cor-base-11: #333333;
+$cor-base-12: #1F1F1F;
+$cor-base-13: #0A0A0A;
+$cor-base-14: #000000;
+
+//tipografia
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap');
+
+@function rem($px, $context: 16){
+  @return calc($px/$context)+rem;
+}
+
+@function lineHeigth($size){
+  @if($size <= 24){
+    @return 1.4;
+  } @else if($size >24){
+    @return  1.2;
+  }
+}
+
+@mixin type-1($size){
+  font-family: 'Roboto', sans-serif;
+  font-size: rem($size);
+  line-height: lineHeigth($size);
+}
+
+@mixin type-2($size){
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: rem($size);
+  line-height: lineHeigth($size);
+}
+
+//responsivo
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+@mixin device($size){
+  @if $size == l {
+    @media screen and (min-width: $l-device) {
+      @content;
+    }
+  } @else if $size == m {
+    @media screen and (min-width: $m-device) and (max-width: ($l-device - 1)) {
+      @content;  
+    }
+  } @else if $size == s {
+    @media screen and (max-width: ($m-device - 1)) {
+      @content;
+    }
+  }
+}
+
+@mixin container{
+  max-width: $l-device;
+  margin: 0 auto;
+  @include device(m){
+    max-width: $m-device;
+  }
+  @include device(s){
+    max-width: $s-device;
+  }
+}
+
+.container{
+  @include container
+}
+
+.title{
+  @include type-2(60);
+  width: max-content;
+  &::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient($azul-2, $azul-6);
+  }
+}

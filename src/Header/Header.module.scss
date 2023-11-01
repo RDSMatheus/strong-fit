@@ -1,0 +1,55 @@
+@import "../styles.scss";
+
+header{
+  background-color: $cor-base-13;
+  @include type-1(18);
+  div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    ul{
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      @include device(m){
+        display: none;
+      }
+      @include device(s){
+        display: none;
+      }
+      a{
+        color: $cor-base-02;
+        padding: 7px 15px;
+        &:hover{
+          color: $cor-base-01;
+        }
+      }
+    }
+  }
+}
+
+.btn{
+  background: linear-gradient($amarelo-01, $amarelo-08);
+  color: $amarelo-15;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: .3s;
+  &:hover{
+    background: linear-gradient($amarelo-02, $amarelo-12);
+    color: $amarelo-15;
+  }
+  &::after{
+    content: "";
+    display: block;
+    background: url("../assets/arrow.svg");
+    width: 10px;
+    height: 16px;
+    transition: .3s;
+  }&:hover::after{
+    transform: translateX(8px);
+  }
+}

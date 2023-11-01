@@ -1,0 +1,67 @@
+@import "../../styles.scss";
+
+main{
+  height: calc(100vh - 80px);
+  background-image: url("../../assets/intro.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  &::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .7);
+  }
+  div{
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    @include device(s){
+      align-items: center;
+    }
+    h1 {
+      position: relative;
+      z-index: 3;
+      @include type-2(60);
+      line-height: 1;
+      max-width: 14ch;
+      color: $cor-base-01;
+      margin-bottom: 100px;
+      @include device(s){
+        @include type-2(40);
+        text-align: center;
+      }
+    }
+  }
+}
+
+.btn {
+  @include type-1(24);
+  color: $cor-base-03;
+  background: linear-gradient($azul-4, $azul-8);
+  width: max-content;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  z-index: 3;
+  border: none;
+  padding: 17px 34px;
+  cursor: pointer;
+  @include device(s){
+    padding: 12px 24px;
+    @include type-1(18);
+  }
+  &:hover{
+    background: linear-gradient($azul-5, $azul-9);
+  }
+}

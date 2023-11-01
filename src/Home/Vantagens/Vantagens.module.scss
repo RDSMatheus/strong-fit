@@ -1,0 +1,49 @@
+@import "../../styles.scss";
+
+section{
+  background-color: $cor-base-13;
+  .containerVantagens{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+    h1{
+      margin: 0 auto;
+      padding: 80px;
+      color: $cor-base-01;
+    }
+    ul{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px 100px;
+      @include device(m){
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+      }
+      @include device(s){
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+      }
+      li{
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: max-content 1fr;
+        align-items: center;
+        gap: 10px 40px;
+        img{
+          grid-column: 1;
+          grid-row: 1/-1;
+        }
+        h3{
+          @include type-2(24);
+          color: $cor-base-03;
+        }
+        p{
+          @include type-1(16);
+          color: $cor-base-04;
+          grid-column: 2;
+        }
+      }
+    }
+  }
+
+}
