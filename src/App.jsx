@@ -2,7 +2,8 @@ import Header from './Header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
 import Main from './Home/Main/Main';
-import Vantagens from './Home/Vantagens/Vantagens';
+import Benefits from './Home/Benefits/Benefits';
+import Facilities from './Home/Facilities/Facilities';
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       <>
         <Header />
         <Main />
-        <Vantagens />
+        <Benefits />
+        <Facilities />
       </>
     </BrowserRouter>
   );

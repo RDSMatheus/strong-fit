@@ -3,19 +3,19 @@ import Supino from '../../assets/supino.svg';
 import Gloves from '../../assets/gloves.svg';
 import Bike from '../../assets/bike.svg';
 import Time from '../../assets/time.svg';
-import styles from './Vantagens.module.scss';
+import styles from './Benefits.module.scss';
 
 const Vantagens = () => {
   return (
-    <section>
-      <div className={styles.containerVantagens}>
+    <section className={styles.benefitsBg}>
+      <div className={styles.containerBenefits}>
         <h1 className="title">Vantagens </h1>
         <ul>
           <li>
             <img src={Supino} alt="Supino ícone" />
             <h3>mais de 100 equipamentos</h3>
             <p>
-              Nada de filas na hora de realizar sua série,contamos com os
+              Nada de filas na hora de realizar sua série, contamos com os
               melhores equipamentos como os da Lion Fitness.
             </p>
           </li>

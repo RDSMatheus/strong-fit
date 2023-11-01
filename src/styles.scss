@@ -108,6 +108,12 @@ $s-device: 480px;
 .title{
   @include type-2(60);
   width: max-content;
+  @include device(m){
+    @include type-2(40);
+  }
+  @include device(s){
+    @include type-2(30);
+  }
   &::after{
     content: "";
     display: block;

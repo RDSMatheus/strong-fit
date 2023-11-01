@@ -1,0 +1,57 @@
+@import "../../styles.scss";
+
+.facilitiesBg{
+  background-color: $cor-base-13;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .facilitiesGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    gap: 0 60px;
+    @include device(m){
+      grid-template-columns: 1fr 2fr;
+      gap: 0 40px;
+    }
+    h1{
+      grid-column: 1;
+      color: $cor-base-01;
+      padding-bottom: 40px;
+      @include device(m){
+        padding-bottom: 20px
+      }
+      @include device(s){
+        padding-bottom: 20px
+      }
+    }
+    h2{
+      @include type-2(24);
+      padding-bottom: 30px;
+      color: $cor-base-01;
+      @include device(m){
+        @include type-2(20);
+        padding-bottom: 20px;      }
+      @include device(s){
+        @include type-2(20);
+        padding-bottom: 20px;
+      }
+    }
+    p{
+      @include type-1(16);
+      color: $cor-base-04;
+      padding-bottom: 40px;
+      @include device(m){
+        padding-bottom: 20px;      }
+      @include device(s){
+        padding-bottom: 20px;
+        @include type-1(14);
+      }
+    }
+    .facilitiesCarousel {
+      width: 100%;
+      grid-column: 2;
+      grid-row: 1/-1;
+    }
+  }
+}
