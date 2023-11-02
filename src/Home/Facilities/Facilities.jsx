@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Facilities.module.scss';
 import Pic1 from '../../assets/facilities-1.jpg';
+import Pic1m from '../../assets/facilities-1-m.jpg';
 
 const Facilities = () => {
   return (
@@ -27,7 +28,15 @@ const Facilities = () => {
           </div>
         </div>
         <div className={styles.facilitiesCarousel}>
-          <img src={Pic1} alt="Foto das instalações da academia" />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet={`${Pic1m} 768w`}
+              sizes="768px"
+            />
+            <source srcSet={`${Pic1} 1280w`} sizes="1280px" />
+            <img src={Pic1} alt="Foto das instalações da academia" />
+          </picture>
         </div>
       </div>
     </section>

@@ -14,15 +14,20 @@
       grid-template-columns: 1fr 2fr;
       gap: 0 40px;
     }
+    @include device(s){
+      grid-template-columns: 1fr;
+      padding: 10px;
+    }
     h1{
       grid-column: 1;
       color: $cor-base-01;
       padding-bottom: 40px;
       @include device(m){
-        padding-bottom: 20px
+        padding-bottom: 20px;
       }
       @include device(s){
-        padding-bottom: 20px
+        padding-bottom: 40px;
+        place-self: center;
       }
     }
     h2{
@@ -49,9 +54,17 @@
       }
     }
     .facilitiesCarousel {
-      width: 100%;
       grid-column: 2;
       grid-row: 1/-1;
+      @include device(s){
+        grid-column: 1;
+        grid-row: 2;
+        padding-bottom: 40px;
+      }
+      img{
+        border-radius: 5px;
+        overflow: hidden;
+      }
     }
   }
 }

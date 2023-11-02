@@ -1,0 +1,59 @@
+@import "../../styles.scss";
+
+.planBg {
+  background: $cor-base-02;
+  h1{
+    padding-bottom: 80px;
+    margin: 0 auto;
+  }
+  .planWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    h2{
+      @include type-2(50);
+      text-align: center;
+    }
+    span{
+      display: block;
+      @include type-1(12);
+      color: $cor-base-10;
+      text-align: center;
+    }
+    p{
+      text-align: center;
+      @include type-2(50);
+    }
+    li{
+      @include type-1(16);
+      padding-top: 20px;
+    }
+    .planPremium {
+      background: $cor-base-01;
+      padding: 40px;
+      position: relative;
+      border-radius: 4px;
+      box-shadow: 0 4px -4px rgba($color: #000000, $alpha: 0.25);
+      p{
+        padding-bottom: 30px;
+        &::after{
+          content: "";
+          position: absolute;
+          display: block;
+          background: $azul-4;
+          width: 100%;
+          height: 4px;
+          right: 0;
+          margin-top: 20px;
+        }
+      }
+      li{
+        
+      }
+    }
+    .planStrong{
+    }
+    .planFit {
+    }
+  }
+}
