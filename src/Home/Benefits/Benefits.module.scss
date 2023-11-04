@@ -6,6 +6,12 @@
     max-width: 1000px;
     margin: 0 auto;
     padding-bottom: 80px;
+    @include device(m){
+      max-width: 700px;
+    }
+    @include device(s){
+      max-width: 500px;
+    }
     h1{
       margin: 0 auto;
       padding: 80px;

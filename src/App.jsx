@@ -4,7 +4,8 @@ import './App.scss';
 import Main from './Home/Main/Main';
 import Benefits from './Home/Benefits/Benefits';
 import Facilities from './Home/Facilities/Facilities';
-
+import Plan from './Home/Plan/Plan';
+import Footer from './Footer/Footer';
 
 const App = () => {
   return (
@@ -14,6 +15,8 @@ const App = () => {
         <Main />
         <Benefits />
         <Facilities />
+        <Plan />
+        <Footer />
       </>
     </BrowserRouter>
   );

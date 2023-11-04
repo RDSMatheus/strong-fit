@@ -9,8 +9,8 @@ const Header = () => {
     <header>
       <div className="container">
         <img src={Logo} alt="Strong Fit logo" />
-        {/* <MenuMobile /> */}
-        <nav>
+        <MenuMobile />
+        <nav className={styles.menu}>
           <ul>
             <li>
               <NavLink>Nossas Instalações</NavLink>

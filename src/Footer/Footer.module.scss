@@ -1,0 +1,41 @@
+@import "../styles.scss";
+
+.footerBg{
+  background: $cor-base-14;
+  color: $cor-base-03;
+  .footerWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @include device(m){
+      flex-direction: column;
+    }
+    @include device(s){
+      flex-direction: column;
+    }
+    .logo{
+      @include device(m){
+        margin-bottom: 40px;
+      }
+      @include device(s){
+        margin-bottom: 20px;
+      }
+    }
+    h2{
+      @include type-2(24);
+      margin-bottom: 30px;
+    }
+    li{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      @include type-1(18);
+      color: $cor-base-05;
+    }
+    a{
+      color: inherit;
+    }
+  }
+}
