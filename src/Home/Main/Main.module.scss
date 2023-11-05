@@ -1,12 +1,16 @@
 @import "../../styles.scss";
 
 main{
-  height: calc(100vh - 80px);
+  height: 100vh;
   background-image: url("../../assets/intro.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  padding-top: 180px;
+  @include device(s){
+    padding-top: 40px;
+  }
   &::after{
     content: "";
     width: 100%;

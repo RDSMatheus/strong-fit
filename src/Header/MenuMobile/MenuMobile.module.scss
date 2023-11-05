@@ -1,3 +1,68 @@
 @import "../../styles.scss";
 
+.menuMobileContainer{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.25);
+  left: 0;
+  top: 0;
+  .menuMobile {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+    gap: 20px;
+    padding-top: 100px;
+    width: 75vw;
+    height: 100vh;
+    margin-left: auto;
+    background: white;
+    transition: .3s;
+    animation: slideRight .3s forwards;
+    @include device(s){
+      width: 100vw;
+      animation: slideDown .3s forwards;
+    }
+    li{
+      @include button(($amarelo-01, $amarelo-09), $amarelo-15)
+    }
+  }
+}
 
+.openMenuMobile {
+  background: transparent;
+  border: none;
+  @include device(l){
+    display: none;
+  }
+}
+
+.closeMenuMobile{
+  font-family: monospace;
+  font-weight: 700;
+  padding: 20px;
+}
+
+@keyframes slideRight {
+  from{
+    opacity: 0;
+    transform: translateX(350px);
+  }
+  to{
+    opacity: 1;
+    transform: initial;
+  }
+}
+
+@keyframes slideDown {
+  from{
+    opacity: 0;
+    transform: translatey(-350px);
+  }
+  to{
+    opacity: 1;
+    transform: initial;
+  }
+}

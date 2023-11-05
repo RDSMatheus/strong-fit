@@ -1,17 +1,6 @@
 @import "../../styles.scss";
 
-@mixin button($bg, $color){
-  border: none;
-  text-transform: uppercase;
-  @include type-1(24);
-  font-weight: 700;
-  color: $color;
-  background: linear-gradient($bg);
-  width: 100%;
-  padding: 16px 0;
-  border-radius: 5px;
-  margin-top: 30px;
-}
+
 
 .planBg {
   background: $cor-base-02;
@@ -82,7 +71,7 @@
         align-items: start;
         margin: 0 auto;
         gap: 0 60px;
-        padding: 20px
+        padding: 20px;
       }
       p{
         padding-bottom: 30px;
@@ -110,9 +99,6 @@
         align-items: start;
         gap: 10px;
         max-width: 25ch;
-        @include device(m){
-          max-width: 40ch;
-        }
         &::before{
           content: "";
           display: block;
