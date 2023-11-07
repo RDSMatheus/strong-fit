@@ -2,6 +2,17 @@ import React from 'react';
 import styles from './Facilities.module.scss';
 import Pic1 from '../../assets/facilities-1.jpg';
 import Pic1m from '../../assets/facilities-1-m.jpg';
+import Pic2 from '../../assets/facilities-2.jpg';
+import Pic2m from '../../assets/facilities-2-m.jpg';
+import Pic3 from '../../assets/facilities-3.jpg';
+import Pic3m from '../../assets/facilities-3-m.jpg';
+import Carousel from './Carousel/Carousel';
+
+const pics = [
+  { desktop: Pic1, mobile: Pic1m },
+  { desktop: Pic2, mobile: Pic2m },
+  { desktop: Pic3, mobile: Pic3m },
+];
 
 const Facilities = () => {
   return (
@@ -28,7 +39,8 @@ const Facilities = () => {
           </div>
         </div>
         <div className={styles.facilitiesCarousel}>
-          <picture>
+          <Carousel src={pics} />
+          {/* <picture>
             <source
               media="(max-width: 768px)"
               srcSet={`${Pic1m} 768w`}
@@ -36,7 +48,7 @@ const Facilities = () => {
             />
             <source srcSet={`${Pic1} 1280w`} sizes="1280px" />
             <img src={Pic1} alt="Foto das instalações da academia" />
-          </picture>
+          </picture> */}
         </div>
       </div>
     </section>

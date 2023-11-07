@@ -43,14 +43,14 @@
       }
     }
     p{
-      @include type-1(16);
+      @include type-1(18);
       color: $cor-base-04;
       padding-bottom: 40px;
       @include device(m){
         padding-bottom: 20px;      }
       @include device(s){
         padding-bottom: 20px;
-        @include type-1(14);
+        @include type-1(16);
       }
     }
     .facilitiesCarousel {

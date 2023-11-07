@@ -39,7 +39,7 @@ const Footer = () => {
             </li>
             <li>
               <img src={Email} alt="" />
-              <a href="#">strongfit@outlook.com</a>
+              <a href="#">contato@strongfit.com</a>
             </li>
           </ul>
         </div>

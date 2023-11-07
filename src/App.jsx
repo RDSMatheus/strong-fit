@@ -7,6 +7,7 @@ import Facilities from './Home/Facilities/Facilities';
 import Plan from './Home/Plan/Plan';
 import Footer from './Footer/Footer';
 
+
 const App = () => {
   return (
     <BrowserRouter>

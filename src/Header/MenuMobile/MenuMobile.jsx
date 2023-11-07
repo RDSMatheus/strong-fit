@@ -16,18 +16,18 @@ const MenuMobile = () => {
       {hamburguer && (
         <div className={styles.menuMobileContainer}>
           <nav className={styles.menuMobile}>
-            <ul>
-              <li>Nossas Instalações</li>
-              <li>Nossas Instalações</li>
-              <li>Nossas Instalações</li>
-              <li>Nossas Instalações</li>
-            </ul>
             <button
               className={styles.closeMenuMobile}
               onClick={() => setHamburguer(!hamburguer)}
             >
               <img src={CloseMenu} alt="Icone fechar menu hamburguer" />
             </button>
+            <ul>
+              <li>Nossas Instalações</li>
+              <li>Nossas Instalações</li>
+              <li>Nossas Instalações</li>
+              <li>Nossas Instalações</li>
+            </ul>
           </nav>
         </div>
       )}
