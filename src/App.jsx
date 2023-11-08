@@ -1,22 +1,21 @@
 import Header from './Header/Header';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Main from './Home/Main/Main';
-import Benefits from './Home/Benefits/Benefits';
-import Facilities from './Home/Facilities/Facilities';
-import Plan from './Home/Plan/Plan';
+import HashRouting from './HashRouting/HashRouting';
 import Footer from './Footer/Footer';
-
+import Contact from './Contact/Contact';
+import Home from './Home/Home';
 
 const App = () => {
   return (
     <BrowserRouter>
       <>
+        <HashRouting />
         <Header />
-        <Main />
-        <Benefits />
-        <Facilities />
-        <Plan />
+        <Routes>
+          <Route path="/" element={<Home />} end />
+          <Route path="contato" element={<Contact />} />
+        </Routes>
         <Footer />
       </>
     </BrowserRouter>

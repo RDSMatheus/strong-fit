@@ -7,7 +7,7 @@ import styles from './Benefits.module.scss';
 
 const Vantagens = () => {
   return (
-    <section className={styles.benefitsBg}>
+    <section className={styles.benefitsBg} id="benefits">
       <div className={styles.containerBenefits}>
         <h1 className="title">Vantagens </h1>
         <ul>

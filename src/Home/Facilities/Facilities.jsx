@@ -16,7 +16,7 @@ const pics = [
 
 const Facilities = () => {
   return (
-    <section className={styles.facilitiesBg}>
+    <section className={styles.facilitiesBg} id="facilities">
       <div className={`container ${styles.facilitiesGrid}`}>
         <h1 className="title">Conheça nossas instalações</h1>
         <div className={styles.facilitiesInfo}>

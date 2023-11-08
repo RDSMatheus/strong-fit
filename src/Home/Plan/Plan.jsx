@@ -3,7 +3,7 @@ import styles from './Plan.module.scss';
 
 const Plan = () => {
   return (
-    <section className={styles.planBg}>
+    <section className={styles.planBg} id='plan'>
       <div className="container">
         <h1 className="title">Escolha seu Plano</h1>
         <div className={styles.planWrapper}>

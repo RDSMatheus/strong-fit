@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './MenuMobile.module.scss';
 import MenuHamburguer from '../../assets/menu-hamburguer.svg';
 import CloseMenu from '../../assets/fechar.svg';
+import { NavLink } from 'react-router-dom';
 
 const MenuMobile = () => {
   const [hamburguer, setHamburguer] = React.useState(false);
@@ -23,10 +24,35 @@ const MenuMobile = () => {
               <img src={CloseMenu} alt="Icone fechar menu hamburguer" />
             </button>
             <ul>
-              <li>Nossas Instalações</li>
-              <li>Nossas Instalações</li>
-              <li>Nossas Instalações</li>
-              <li>Nossas Instalações</li>
+              <li>
+                <NavLink
+                  to="/#facilities"
+                  onClick={() => setHamburguer(!hamburguer)}
+                >
+                  Nossas Instalações
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="contato"
+                  onClick={() => setHamburguer(!hamburguer)}
+                >
+                  Contato
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/#benefits"
+                  onClick={() => setHamburguer(!hamburguer)}
+                >
+                  Vantagens
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/#plan" onClick={() => setHamburguer(!hamburguer)}>
+                  Planos
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </div>
