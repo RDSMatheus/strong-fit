@@ -26,8 +26,10 @@ const Contact = () => {
         }),
       },
     );
-    const res = await fetchData.json();
-    console.log(res);
+    const res = await fetchData;
+    const json = await res.json();
+
+    console.log(json);
   }
 
   return (
