@@ -9,14 +9,12 @@ label{
   input{
     margin-top: .5rem;
     display: block;
-    width: 100%;
-    border: none;
+    width: 100%;;
     border: 1px solid transparent;
     border-bottom: 1px solid $cor-base-14;
     background-color: $cor-base-02;
     padding: .8rem .4rem;
     @include type-1(16);
-    outline: none;
     transition: .5s;
     &:focus{
       background-color: $cor-base-01;
