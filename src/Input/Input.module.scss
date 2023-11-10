@@ -14,6 +14,7 @@ label{
     border-bottom: 1px solid $cor-base-14;
     background-color: $cor-base-02;
     padding: .8rem .4rem;
+    outline: none;
     @include type-1(16);
     transition: .5s;
     &:focus{
