@@ -19,9 +19,8 @@ label{
     &:focus{
       background-color: $cor-base-01;
       box-shadow: 0px 0px 4px $amarelo-01;
-      outline: 1px solid $amarelo-01;
+      border: 1px solid $amarelo-01;
       border-radius: 5px;
-      border: 1px solid transparent;
     }
     &focus-visible{
       outline: 1px solid $amarelo-01;
@@ -29,9 +28,8 @@ label{
     &:hover{
       background-color: $cor-base-01;
       box-shadow: 0px 0px 4px $amarelo-01;
-      outline: 1px solid $amarelo-01;
+      border: 1px solid $amarelo-01;
       border-radius: 5px;
-      border: 1px solid transparent;
     }
   }
 }
