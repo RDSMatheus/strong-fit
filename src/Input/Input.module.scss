@@ -14,7 +14,7 @@ label{
     border-bottom: 1px solid $cor-base-14;
     background-color: $cor-base-02;
     padding: .8rem .4rem;
-    outline: none;
+    outline: 1px solid transparent;
     @include type-1(16);
     transition: .5s;
     &:focus{
@@ -22,9 +22,6 @@ label{
       box-shadow: 0px 0px 4px $amarelo-01;
       border: 1px solid $amarelo-01;
       border-radius: 5px;
-    }
-    &focus-visible{
-      outline: 1px solid $amarelo-01;
     }
     &:hover{
       background-color: $cor-base-01;
