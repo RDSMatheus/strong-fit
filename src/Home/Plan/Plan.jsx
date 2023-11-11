@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Plan.module.scss';
+import { Link } from 'react-router-dom';
 
 const Plan = () => {
   return (
-    <section className={styles.planBg} id='plan'>
+    <section className={styles.planBg} id="plan">
       <div className="container">
         <h1 className="title">Escolha seu Plano</h1>
         <div className={styles.planWrapper}>
@@ -15,7 +16,7 @@ const Plan = () => {
               <li>Acesso à todas as áreas da academia.</li>
               <li>Primeira avaliação física gratuita.</li>
             </ul>
-            <button>inscreva-se</button>
+            <Link to="register/plano PREMIUM">inscreva-se</Link>
           </div>
           <div className={styles.planStrong}>
             <h2>plano strong</h2>

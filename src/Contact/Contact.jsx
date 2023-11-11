@@ -15,18 +15,21 @@ const Contact = () => {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const fetchData = await fetch('http://localhost:3001/contact/sendmail', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
+      const fetchData = await fetch(
+        'https://strongfitapi.vercel.app/contact/sendmail',
+        {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            assunto: subject,
+            mensagem: msg,
+          }),
         },
-        body: JSON.stringify({
-          name,
-          email,
-          assunto: subject,
-          mensagem: msg,
-        }),
-      });
+      );
       const dados = await fetchData;
       const res = await fetchData.json();
       console.log(dados);
