@@ -34,7 +34,7 @@ const Plan = () => {
                   <div className={defineClass(plan.planName)} key={plan._id}>
                     <h2>{plan.planName}</h2>
                     {plan.planPromo && <span>a partir de</span>}
-                    <p>{plan.planPrice}</p>
+                    <p>{plan.planPromo ? plan.planPromo : plan.planPrice}</p>
                     <ul>
                       {plan.planBenefits.map((benefits) => (
                         <li key={benefits}>{benefits}</li>
