@@ -126,6 +126,7 @@ $s-device: 480px;
 }
 
 @mixin button($bg, $color){
+  display: block;
   border: none;
   text-transform: uppercase;
   @include type-1(24);
@@ -137,5 +138,9 @@ $s-device: 480px;
   border-radius: 5px;
   margin-top: 30px;
   text-align: center;
+  transition: .3s;
   cursor: pointer;
+  &:hover{
+    filter: brightness(80%);
+  }
 }

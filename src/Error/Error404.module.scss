@@ -1,0 +1,17 @@
+@import "../styles.scss";
+
+.error404 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  img{
+    max-width: 500px;
+  }
+  a{
+    @include type-1(24);
+    text-decoration: underline;
+  }
+}

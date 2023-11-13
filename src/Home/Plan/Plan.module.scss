@@ -58,6 +58,7 @@
       margin-top: 20px;
     }
     .planPremium {
+      order: 1;
       flex: 1;
       background: $cor-base-01;
       padding: 40px;
@@ -108,13 +109,14 @@
           background-image: linear-gradient($azul-4, $azul-9);
         }
       }
-      button{
+      a{
         @include button(($azul-4, $azul-9), $cor-base-01);
       }
       
     }
 
     .planStrong{
+      order: 2;
       flex: 1;
       background: $cor-base-13;
       padding: 40px;
@@ -169,11 +171,12 @@
           background-image: linear-gradient($amarelo-01, $amarelo-14);
         }
       }
-      button{
+      a{
         @include button(($amarelo-01, $amarelo-09), $amarelo-15);
       }
     }
     .planFit {
+      order: 3;
       flex: 1;
       background: $cor-base-01;
       color: $cor-base-10;
@@ -228,7 +231,7 @@
           background: linear-gradient($azul-4, $azul-9);
         }
       }
-      button{
+      a{
         @include button(($azul-4, $azul-9), $cor-base-01);
       }
     }

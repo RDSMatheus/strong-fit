@@ -1,0 +1,162 @@
+@import "../styles.scss";
+
+.registerTopBar{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: $cor-base-14;
+  position: relative;
+  z-index: 2222;
+}
+
+.registerWrapper{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 60px;
+  height: calc(100vh - 280px);
+  .form{
+    margin-bottom: 50px;
+    @include device(m){
+      margin-bottom: 250px;
+    }
+    @include device(s){
+      margin-bottom: 250px;
+    }
+  }
+  @include device(m){
+    grid-template-columns: 1fr;
+  }
+  @include device(s){
+    grid-template-columns: 1fr;
+  }
+  .btnDesktop{
+    @include button(($azul-4, $azul-9), $cor-base-01);
+    @include device(m){
+      display: none;
+    }
+    @include device(s){
+      display: none;
+    }
+  }
+  h1{
+    grid-column: 1/-1;
+    margin-bottom: 30px;
+  }
+  .sideBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $cor-base-01;
+    background-color: $cor-base-12;
+    position: fixed;
+    z-index: 4444;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 33%;
+    padding-left: 30px;
+    padding-right: 30px;
+    @include device(m){
+      display: none;
+    }
+    @include device(s){
+      display: none;
+    }
+    h2{
+      @include type-2(40);
+      margin-bottom: 20px;
+    }
+    li{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      @include type-1(18);
+      span{
+        font-weight: 700;
+      }
+    }
+  }
+  .sideBarMobile{
+    display: none;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    background: $cor-base-02;
+    box-shadow: 0 -2px 4px rgba($color: #000000, $alpha: .2);
+    @include device(m){
+      display: block;
+    }
+    @include device(s){
+      display: block;
+    }
+    .btnMobile {
+      @include button(($azul-4, $azul-9), $cor-base-01);
+      
+    }
+    h3{
+      @include type-2(30);
+      @include device(s){
+        @include type-2(20);
+      }
+    }
+    p{
+      @include type-1(18);
+      font-weight: bold;
+      @include device(s){
+        @include type-1(16)
+      }
+      &::after{
+        display: block;
+        width: 100%;
+        content: "";
+        background-color: $amarelo-02;
+        height: 4px;
+        margin-top: 8px;
+      }
+    }
+    div{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+.mobileDetails{
+  position: fixed;
+  display: none;
+  z-index: 3333;
+  display: grid;
+  align-items: center;
+  padding: 30px;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: calc(100vh - 193px);
+  background: $cor-base-02;
+  animation: fromRight .3s forwards;
+  h2{
+    @include type-2(40);
+    margin-bottom: 30px;
+  }
+  li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    @include type-1(18);
+    span{
+      font-weight: 700;
+    }
+  }
+}
+
+@keyframes fromRight {
+  from{
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: initial;
+  }
+}

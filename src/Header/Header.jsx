@@ -1,33 +1,43 @@
 import React from 'react';
 import Logo from '../assets/logo.svg';
 import styles from './Header.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import MenuMobile from './MenuMobile/MenuMobile';
+import { NavHashLink } from 'react-router-hash-link';
+import Contact from '../Contact/Contact';
 
 const Header = () => {
+  <Routes>
+    <Route path="contato" element={<Contact />} />
+  </Routes>;
+
   return (
     <header>
       <div className="container">
-        <NavLink to="/#home">
+        <NavHashLink smooth to="/#home">
           <img src={Logo} alt="Strong Fit logo" />
-        </NavLink>
+        </NavHashLink>
 
         <MenuMobile />
         <nav className={styles.menu}>
           <ul>
             <li>
-              <NavLink to="/#facilities">Nossas Instalações</NavLink>
+              <NavHashLink smooth to="/#facilities">
+                Nossas Instalações
+              </NavHashLink>
             </li>
             <li>
               <NavLink to="contato">Contato</NavLink>
             </li>
             <li>
-              <NavLink to="/#benefits">Vantagens</NavLink>
+              <NavHashLink smooth to="/#benefits">
+                Vantagens
+              </NavHashLink>
             </li>
             <li>
-              <NavLink className={styles.btn} to="/#plan">
+              <NavHashLink smooth className={styles.btn} to="/#plan">
                 Planos
-              </NavLink>
+              </NavHashLink>
             </li>
           </ul>
         </nav>

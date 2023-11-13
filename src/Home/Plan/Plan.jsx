@@ -3,45 +3,52 @@ import styles from './Plan.module.scss';
 import { Link } from 'react-router-dom';
 
 const Plan = () => {
-  return (
-    <section className={styles.planBg} id="plan">
-      <div className="container">
-        <h1 className="title">Escolha seu Plano</h1>
-        <div className={styles.planWrapper}>
-          <div className={styles.planPremium}>
-            <h2>plano premium</h2>
-            <span>a partir de</span>
-            <p>R$ 49,90</p>
-            <ul>
-              <li>Acesso à todas as áreas da academia.</li>
-              <li>Primeira avaliação física gratuita.</li>
-            </ul>
-            <Link to="register/plano PREMIUM">inscreva-se</Link>
-          </div>
-          <div className={styles.planStrong}>
-            <h2>plano strong</h2>
-            <span>a partir de</span>
-            <p>R$ 79,90</p>
-            <ul>
-              <li>Acesso à todas as áreas da academia.</li>
-              <li>Escolha entre uma das modalidades de luta disponivel.</li>
-              <li>Primeira avaliação física gratuita.</li>
-            </ul>
-            <button>inscreva-se</button>
-          </div>
-          <div className={styles.planFit}>
-            <h2>plano fit</h2>
-            <p>R$ 94,90</p>
-            <ul>
-              <li>Acesso apenas à musculacão.</li>
-              <li>Primeira avaliação física gratuita.</li>
-            </ul>
-            <button>inscreva-se</button>
+  const [plans, setPlans] = React.useState(null);
+
+  React.useEffect(() => {
+    async function getPlans() {
+      const dados = await fetch('https://strongfitapi.vercel.app/plan/getplan');
+      const json = await dados.json();
+      setPlans(json.plans);
+    }
+    getPlans();
+  }, []);
+
+  function defineClass(plan) {
+    if (plans) {
+      if (plan.toLowerCase() === 'plano strong') return styles.planStrong;
+      if (plan.toLowerCase() === 'plano fit') return styles.planFit;
+      if (plan.toLowerCase() === 'plano premium') return styles.planPremium;
+    }
+  }
+
+  if (plans)
+    return (
+      <section className={styles.planBg} id="plan">
+        <div className="container">
+          <h1 className="title">Escolha seu Plano</h1>
+          <div className={styles.planWrapper}>
+            {plans &&
+              plans.map((plan) => {
+                return (
+                  <div className={defineClass(plan.planName)} key={plan._id}>
+                    <h2>{plan.planName}</h2>
+                    {plan.planPromo && <span>a partir de</span>}
+                    <p>{plan.planPrice}</p>
+                    <ul>
+                      {plan.planBenefits.map((benefits) => (
+                        <li key={benefits}>{benefits}</li>
+                      ))}
+                    </ul>
+                    <Link to={`register/${plan._id}`}>inscreva-se</Link>
+                  </div>
+                );
+              })}
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  else return null;
 };
 
 export default Plan;

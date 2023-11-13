@@ -3,6 +3,7 @@ import styles from './MenuMobile.module.scss';
 import MenuHamburguer from '../../assets/menu-hamburguer.svg';
 import CloseMenu from '../../assets/fechar.svg';
 import { NavLink } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 
 const MenuMobile = () => {
   const [hamburguer, setHamburguer] = React.useState(false);
@@ -25,12 +26,13 @@ const MenuMobile = () => {
             </button>
             <ul>
               <li>
-                <NavLink
+                <NavHashLink
+                  smooth
                   to="/#facilities"
                   onClick={() => setHamburguer(!hamburguer)}
                 >
                   Nossas Instalações
-                </NavLink>
+                </NavHashLink>
               </li>
               <li>
                 <NavLink
@@ -41,17 +43,23 @@ const MenuMobile = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
+                <NavHashLink
+                  smooth
                   to="/#benefits"
                   onClick={() => setHamburguer(!hamburguer)}
                 >
                   Vantagens
-                </NavLink>
+                </NavHashLink>
               </li>
               <li>
-                <NavLink to="/#plan" onClick={() => setHamburguer(!hamburguer)}>
+                <NavHashLink
+                  smooth
+                  className={styles.btn}
+                  to="/#plan"
+                  onClick={() => setHamburguer(!hamburguer)}
+                >
                   Planos
-                </NavLink>
+                </NavHashLink>
               </li>
             </ul>
           </nav>

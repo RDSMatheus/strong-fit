@@ -3,12 +3,12 @@ import Main from './Main/Main';
 import Facilities from './Facilities/Facilities';
 import Plan from './Plan/Plan';
 import Benefits from './Benefits/Benefits';
-import HashRouting from '../HashRouting/HashRouting';
+import Head from '../Head';
 
 const Home = () => {
   return (
     <>
-      <HashRouting />
+      <Head title="Home" description="Página inicial do website StrongFit" />
       <Main />
       <Benefits />
       <Facilities />

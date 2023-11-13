@@ -31,8 +31,8 @@
       grid-column: 1;
     }
     li{
-      @include button(($amarelo-01, $amarelo-09), $amarelo-15);
       a{
+        @include button(($amarelo-01, $amarelo-09), $amarelo-15);
         color: $amarelo-15;
       }
     }

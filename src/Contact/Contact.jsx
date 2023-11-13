@@ -5,6 +5,7 @@ import Instagram from '../assets/instagram.svg';
 import Facebook from '../assets/facebook.svg';
 import Email from '../assets/email.svg';
 import styles from './Contact.module.scss';
+import Head from '../Head';
 
 const Contact = () => {
   const [name, setName] = React.useState('');
@@ -40,6 +41,10 @@ const Contact = () => {
 
   return (
     <section>
+      <Head
+        title="Contato"
+        description="Página de contato do website StrongFit"
+      />
       <div className={styles.contactBg}>
         <div>
           <h1 className="title">Fale Conosco</h1>
