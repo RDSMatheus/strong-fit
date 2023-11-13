@@ -6,16 +6,33 @@ import Facebook from '../assets/facebook.svg';
 import Email from '../assets/email.svg';
 import styles from './Contact.module.scss';
 import Head from '../Head';
+import FormError from '../Error/FormError';
+import Confirmation from '../Confirmation/Confirmation';
+import Loading from '../Loading/Loading';
 
 const Contact = () => {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [subject, setSubject] = React.useState('');
   const [msg, setMsg] = React.useState('');
+  const [error, setError] = React.useState(null);
+  const [sendForm, setSendForm] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+
+  function clearInput(dados) {
+    if (dados.ok) {
+      setName('');
+      setEmail('');
+      setSubject('');
+      setMsg('');
+    }
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
+      setError(false);
+      setLoading(true);
       const fetchData = await fetch(
         'https://strongfitapi.vercel.app/contact/sendmail',
         {
@@ -26,16 +43,21 @@ const Contact = () => {
           body: JSON.stringify({
             name,
             email,
-            assunto: subject,
-            mensagem: msg,
+            subject,
+            message: msg,
           }),
         },
       );
       const dados = await fetchData;
-      const res = await fetchData.json();
+      const json = await dados.json();
+      dados.ok ? setError(false) : setError(json.message);
+      dados.ok ? setSendForm(json.message) : setSendForm(false);
+      clearInput(dados);
       console.log(dados);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -45,6 +67,7 @@ const Contact = () => {
         title="Contato"
         description="Página de contato do website StrongFit"
       />
+      {error && <FormError error={error} setValue={setError} />}
       <div className={styles.contactBg}>
         <div>
           <h1 className="title">Fale Conosco</h1>
@@ -84,26 +107,50 @@ const Contact = () => {
             <li>Próximo à Mercearia 2 irmãos</li>
           </ul>
         </div>
-        <form onSubmit={handleSubmit}>
-          <h2>Envie sua mensagem</h2>
-          <Input type="text" label="Nome" value={name} setValue={setName} />
-          <Input type="email" label="Email" value={email} setValue={setEmail} />
-          <Input
-            type="text"
-            label="Assunto"
-            value={subject}
-            setValue={setSubject}
+        {sendForm ? (
+          <Confirmation
+            confirm={sendForm}
+            btnTxt="Enviar outro email"
+            setValue={setSendForm}
           />
-          <label>
-            Mensagem
-            <textarea
-              cols="30"
-              value={msg}
-              onChange={({ target }) => setMsg(target.value)}
-            ></textarea>
-          </label>
-          <button>enviar</button>
-        </form>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            {loading ? (
+              <Loading />
+            ) : (
+              <>
+                <h2>Envie sua mensagem</h2>
+                <Input
+                  type="text"
+                  label="Nome"
+                  value={name}
+                  setValue={setName}
+                />
+                <Input
+                  type="email"
+                  label="Email"
+                  value={email}
+                  setValue={setEmail}
+                />
+                <Input
+                  type="text"
+                  label="Assunto"
+                  value={subject}
+                  setValue={setSubject}
+                />
+                <label>
+                  Mensagem
+                  <textarea
+                    cols="30"
+                    value={msg}
+                    onChange={({ target }) => setMsg(target.value)}
+                  ></textarea>
+                </label>
+                <button>enviar</button>
+              </>
+            )}
+          </form>
+        )}
       </div>
     </section>
   );

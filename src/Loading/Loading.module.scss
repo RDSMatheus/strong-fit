@@ -1,0 +1,21 @@
+@import "../styles.scss";
+
+.loading {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-top: 5px solid $amarelo-01;
+  border-left: 5px solid $amarelo-01;
+  border-right: 5px solid $amarelo-01;
+  border-bottom: 5px solid $amarelo-15;
+  animation: rotate .5s infinite linear;
+}
+
+@keyframes rotate {
+  from{
+    transform: rotate(5deg);
+  }
+  to{
+    transform: rotate(355deg);
+  }
+}

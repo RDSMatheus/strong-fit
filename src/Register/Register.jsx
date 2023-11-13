@@ -6,6 +6,9 @@ import Logo from '../assets/logo.svg';
 import FormError from '../Error/FormError';
 import Error404 from '../Error/Error404';
 import Head from '../Head';
+import Confirmation from '../Confirmation/Confirmation';
+import { NavLink } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const Register = () => {
   const { id } = useParams();
@@ -17,10 +20,13 @@ const Register = () => {
   const [cpf, setCpf] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [phone, setPhone] = React.useState('');
+  const [sendForm, setSendForm] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     async function getPlanById(id) {
       try {
+        setLoading(true);
         setError(null);
         const dados = await fetch(
           `https://strongfitapi.vercel.app/plan/getplanbyid/${id}`,
@@ -30,6 +36,8 @@ const Register = () => {
         setPlan(json.plan);
       } catch (err) {
         console.log(err);
+      } finally {
+        setLoading(false);
       }
     }
     getPlanById(id);
@@ -55,6 +63,7 @@ const Register = () => {
       dados.ok
         ? setConfirmationError(false)
         : setConfirmationError(json.message);
+      dados.ok ? setSendForm(json.message) : setSendForm(false);
       console.log(confirmationError);
     } catch (err) {
       console.log(err);
@@ -62,6 +71,8 @@ const Register = () => {
   }
 
   if (error) return <Error404 />;
+
+  console.log(loading);
 
   if (plan)
     return (
@@ -78,29 +89,45 @@ const Register = () => {
         )}
         <div className={`${styles.registerTopBar}`}>
           <div className="container">
-            <img src={Logo} alt="" />
+            <NavLink to="/">
+              <img src={Logo} alt="" />
+            </NavLink>
           </div>
         </div>
         <div className={`${styles.registerWrapper} container`}>
           <h1 className="title">conclua sua matricula</h1>
-          <form onSubmit={handleSubmit}>
-            <div className={styles.form}>
-              <Input label="Nome completo" setValue={setName} />
-              <Input label="CPF" setValue={setCpf} />
-              <Input label="Email" setValue={setEmail} />
-              <Input label="Telefone" setValue={setPhone} />
-              <button className={styles.btnDesktop}>cadastrar</button>
-            </div>
-            <div className={styles.sideBarMobile}>
-              <div>
-                <h3>{plan.planName}</h3>
-                <p onClick={() => setDetailMobile(!detailMobile)}>
-                  Detalhes da matricula
-                </p>
-              </div>
-              <button className={styles.btnMobile}>cadastrar</button>
-            </div>
-          </form>
+          {sendForm ? (
+            <Confirmation
+              confirm={sendForm}
+              btnTxt="Fazer outro cadastro"
+              setValue={setSendForm}
+            />
+          ) : (
+            <form onSubmit={handleSubmit}>
+              {loading ? (
+                <Loading />
+              ) : (
+                <>
+                  <div className={styles.form}>
+                    <Input label="Nome completo" setValue={setName} />
+                    <Input label="CPF" setValue={setCpf} />
+                    <Input label="Email" setValue={setEmail} />
+                    <Input label="Telefone" setValue={setPhone} />
+                    <button className={styles.btnDesktop}>cadastrar</button>
+                  </div>
+                  <div className={styles.sideBarMobile}>
+                    <div>
+                      <h3>{plan.planName}</h3>
+                      <p onClick={() => setDetailMobile(!detailMobile)}>
+                        Detalhes da matricula
+                      </p>
+                    </div>
+                    <button className={styles.btnMobile}>cadastrar</button>
+                  </div>
+                </>
+              )}
+            </form>
+          )}
           <div className={styles.sideBar}>
             <ul>
               <h2>{plan.planName}</h2>
