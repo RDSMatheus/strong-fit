@@ -1,15 +1,11 @@
 import React from 'react';
 import Logo from '../assets/logo.svg';
 import styles from './Header.module.scss';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import MenuMobile from './MenuMobile/MenuMobile';
 import { NavHashLink } from 'react-router-hash-link';
-import Contact from '../Contact/Contact';
 
 const Header = () => {
-  <Routes>
-    <Route path="contato" element={<Contact />} />
-  </Routes>;
 
   return (
     <header>
