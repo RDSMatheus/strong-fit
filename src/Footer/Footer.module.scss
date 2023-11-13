@@ -21,21 +21,22 @@
       }
       @include device(s){
         margin-bottom: 20px;
+        display: none;
       }
     }
     h2{
       @include type-2(24);
       margin-bottom: 30px;
     }
-    li{
+    a{
       display: flex;
       gap: 10px;
       margin-bottom: 16px;
       @include type-1(18);
-      color: $cor-base-05;
+      color: $cor-base-05; 
     }
-    a{
-      color: inherit;
+    li{
+      margin-bottom: 16px;
     }
   }
 }

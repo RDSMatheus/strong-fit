@@ -26,20 +26,28 @@ const Footer = () => {
           <h2>Contato</h2>
           <ul>
             <li>
-              <img src={WhatsApp} alt="" />
-              <a href="#">27 99999-9999</a>
+              <a href="#">
+                <img src={WhatsApp} alt="" />
+                <span>27 99999-9999</span>
+              </a>
             </li>
             <li>
-              <img src={Instagram} alt="" />
-              <a href="#">@strongfit</a>
+              <a href="#">
+                <img src={Instagram} alt="" />
+                <span>@strongfit</span>
+              </a>
             </li>
             <li>
-              <img src={Facebook} alt="" />
-              <a href="#">@strongfit</a>
+              <a href="#">
+                <img src={Facebook} alt="" />
+                <span>@strongfit</span>
+              </a>
             </li>
             <li>
-              <img src={Email} alt="" />
-              <a href="#">contato@strongfit.com</a>
+              <a href="#">
+                <img src={Email} alt="" />
+                <span>contato@strongfit.com</span>
+              </a>
             </li>
           </ul>
         </div>
