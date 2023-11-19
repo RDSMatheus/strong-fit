@@ -30,8 +30,8 @@
 .carouselWrapper{
   position: relative;
   @include device(s){
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .carouselNav {
     position: absolute;
@@ -47,8 +47,8 @@
         border: none;
         cursor: pointer;
         @include device(s){
-          margin-left: 20px;
-          margin-right: 20px;
+          margin-left: 15px;
+          margin-right: 15px;
         }
       }
     }
